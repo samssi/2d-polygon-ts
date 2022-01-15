@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["es2019"],
+    "outDir": "./build",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "preserveSymlinks": true,
+    
+    "sourceMap": true,
+    "strict": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
