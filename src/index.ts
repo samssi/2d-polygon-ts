@@ -10,6 +10,4 @@ const main = () => {
   update(rootElement);
 };
 
-// document.getElementById('main');
-
 main();
