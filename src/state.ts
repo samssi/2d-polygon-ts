@@ -1,10 +1,18 @@
-export const state = (() => {
-  let foo = 1;
+import { Vector2d } from './vector';
+
+interface State {
+  vector2ds: Vector2d[]
+}
+
+export const appState = (() => {
+  let stateContainer: State = {
+    vector2ds: [],
+  };
 
   return {
-    update: (value: number): void => {
-      foo = value;
+    update: (state: State): void => {
+      stateContainer = state;
     },
-    value: (): number => foo,
+    currentState: (): State => stateContainer,
   };
 })();

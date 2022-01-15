@@ -7,7 +7,10 @@ const main = () => {
   if (!rootElement) {
     throw new Error('Application failure: no root element!');
   }
-  update(rootElement);
+  window.setInterval(
+    () => update(rootElement),
+    100,
+  );
 };
 
 main();
