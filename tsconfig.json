@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
-    "lib": ["es2019"],
-    "outDir": "./build",
+    "module": "es6",
+    "lib": ["es2019", "dom"],
+    "outDir": "./dist",
     "moduleResolution": "node",
     "importHelpers": true,
     "noUnusedLocals": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "preserveSymlinks": true,
-    
     "sourceMap": true,
     "strict": true
   },
