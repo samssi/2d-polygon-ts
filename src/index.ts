@@ -8,10 +8,6 @@ const main = () => {
     throw new Error('Application failure: no root element!');
   }
   update(rootElement);
-  window.setInterval(
-    () => update(rootElement),
-    3000,
-  );
 };
 
 main();
