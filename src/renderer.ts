@@ -4,7 +4,7 @@ import {
 
 const rendererWidth = window.innerWidth;
 const rendererHeight = window.innerHeight;
-const scale = 1;
+const scale = 5;
 let rotation = 0;
 
 const createCanvas = (element: HTMLElement): HTMLCanvasElement => {
@@ -59,7 +59,11 @@ const render = (canvas: HTMLCanvasElement, context: CanvasRenderingContext2D) =>
     tri,
     position,
   ));
-  rotation += 1;
+  if (rotation > 360) {
+    rotation = 0;
+  } else {
+    rotation += 1;
+  }
 };
 
 export const update = (rootElement: HTMLElement): void => {
