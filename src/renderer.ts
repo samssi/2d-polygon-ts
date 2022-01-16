@@ -1,8 +1,11 @@
-import { appState, createTriangle, Triangle } from './state';
+import {
+  appState, createTriangle, rotateTriangle, Triangle,
+} from './state';
 
 const rendererWidth = window.innerWidth;
 const rendererHeight = window.innerHeight;
 const scale = 1;
+let rotation = 0;
 
 const createCanvas = (element: HTMLElement): HTMLCanvasElement => {
   const canvas = document.createElement('canvas');
@@ -42,12 +45,21 @@ const drawTriangle = (
 
 const render = (canvas: HTMLCanvasElement, context: CanvasRenderingContext2D) => {
   context.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+  const triangle = createTriangle({ x: 50, y: 0 }, { x: 0, y: 50 });
+  const rotated = rotateTriangle(triangle, rotation);
+
+  appState.update({
+    triangles: [
+      rotated,
+    ],
+  });
   const position: Position = { x: 0, y: 0 };
-  appState.currentState().triangles.forEach((triangle) => drawTriangle(
+  appState.currentState().triangles.forEach((tri) => drawTriangle(
     context,
-    triangle,
+    tri,
     position,
   ));
+  rotation += 1;
 };
 
 export const update = (rootElement: HTMLElement): void => {
@@ -57,16 +69,11 @@ export const update = (rootElement: HTMLElement): void => {
     throw new Error('Application failure: no canvas context!');
   }
 
-  appState.update({
-    triangles: [
-      createTriangle({ x: 50, y: 0 }, { x: 0, y: 50 }),
-    ],
-  });
   const translateX = canvas.width * 0.5;
   const translateY = canvas.height * 0.5;
   context.translate(translateX, translateY);
   setInterval(
     () => render(canvas, context),
-    100,
+    10,
   );
 };
