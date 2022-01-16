@@ -13,17 +13,6 @@ const createCanvas = (element: HTMLElement): HTMLCanvasElement => {
   return canvas;
 };
 
-/*
-const drawVector = (context: CanvasRenderingContext2D, vector2d: Vector2d): void => {
-  context.beginPath();
-  context.moveTo(rendererWidth / 2, rendererHeight / 2);
-  context.lineTo(
-    vector2d.x + (rendererWidth / 2) * scale,
-    vector2d.y + (rendererHeight / 2) * scale,
-  );
-  context.stroke();
-}; */
-
 const drawTriangle = (context: CanvasRenderingContext2D, triangle: Triangle): void => {
   context.beginPath();
   context.moveTo(halfWidth, halfHeight);
