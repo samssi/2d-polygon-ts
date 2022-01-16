@@ -29,16 +29,16 @@ const drawTriangle = (context: CanvasRenderingContext2D, triangle: Triangle): vo
   context.moveTo(halfWidth, halfHeight);
   context.lineTo(
     triangle.aVector.x + halfWidth,
-    triangle.aVector.y + halfHeight,
+    -triangle.aVector.y + halfHeight,
   );
   context.lineTo(
     triangle.bVector.x + triangle.aVector.x + halfWidth,
-    triangle.bVector.y + triangle.aVector.y + halfHeight,
+    -triangle.bVector.y + -triangle.aVector.y + halfHeight,
   );
   context.moveTo(halfWidth, halfHeight);
   context.lineTo(
     triangle.cVector.x + halfWidth,
-    triangle.cVector.y + halfHeight,
+    -triangle.cVector.y + halfHeight,
   );
   context.stroke();
 };
@@ -51,7 +51,10 @@ export const update = (rootElement: HTMLElement): void => {
   }
 
   appState.update({
-    triangles: [createTriangle({ x: 200, y: 0 }, { x: 0, y: 90 })],
+    triangles: [
+      createTriangle({ x: 10, y: 0 }, { x: 30, y: 70 }),
+      createTriangle({ x: -100, y: 0 }, { x: 0, y: 100 }),
+    ],
   });
   console.log('tick');
   appState.currentState().triangles.forEach((triangle) => drawTriangle(context, triangle));

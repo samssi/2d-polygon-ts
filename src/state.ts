@@ -11,9 +11,10 @@ interface State {
 }
 
 export const createTriangle = (aVector: Vector2d, bVector: Vector2d): Triangle => ({
-  aVector: { x: aVector.x, y: -aVector.y },
-  bVector: { x: bVector.x, y: -bVector.y },
-  cVector: { x: aVector.x + bVector.x, y: aVector.y + -bVector.y },
+  aVector: { x: aVector.x, y: aVector.y },
+  bVector: { x: bVector.x, y: bVector.y },
+  cVector: { x: aVector.x + bVector.x, y: aVector.y + bVector.y },
+
 });
 
 export const appState = (() => {
